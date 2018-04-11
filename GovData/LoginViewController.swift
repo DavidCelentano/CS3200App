@@ -66,7 +66,7 @@ class LoginViewController: UIViewController {
     private let guestLoginButton: UIButton = {
         let b = UIButton(type: .system)
         b.setTitle("Continue as guest", for: .normal)
-        //b.addTarget(self, action: #selector(SOME METHOD), for: .touchUpInside)
+        b.addTarget(self, action: #selector(guestLoginTapped), for: .touchUpInside)
         return b
     }()
     
@@ -119,6 +119,13 @@ class LoginViewController: UIViewController {
             make.top.equalTo(loginButton.snp.bottom).offset(25)
             make.centerX.equalTo(titleLabel)
         }
+    }
+    
+    @objc func guestLoginTapped() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let guestVC = storyboard.instantiateViewController(withIdentifier: "GuestVC") as? GuestViewController else { assertionFailure("\(#function) Could not present GuestVC"); return }
+        //filterVC.modalTransitionStyle = .
+        present(guestVC, animated: true, completion: nil)
     }
 
 }

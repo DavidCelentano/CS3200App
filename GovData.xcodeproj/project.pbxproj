@@ -13,6 +13,7 @@
 		008F5E18207BA36500D7F089 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 008F5E17207BA36500D7F089 /* Assets.xcassets */; };
 		008F5E1B207BA36500D7F089 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 008F5E19207BA36500D7F089 /* LaunchScreen.storyboard */; };
 		008F5E26207BA36500D7F089 /* GovDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008F5E25207BA36500D7F089 /* GovDataTests.swift */; };
+		008F5E31207E6DA600D7F089 /* GuestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008F5E30207E6DA600D7F089 /* GuestViewController.swift */; };
 		78583890870C286A25FFF6E5 /* Pods_GovData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 020B48B501B97D29269ECAF1 /* Pods_GovData.framework */; };
 		F902A1CA1809CAFD65C01157 /* Pods_GovDataTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB6E5A218CFED20EBA110C1 /* Pods_GovDataTests.framework */; };
 /* End PBXBuildFile section */
@@ -38,6 +39,7 @@
 		008F5E21207BA36500D7F089 /* GovDataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GovDataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		008F5E25207BA36500D7F089 /* GovDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GovDataTests.swift; sourceTree = "<group>"; };
 		008F5E27207BA36500D7F089 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		008F5E30207E6DA600D7F089 /* GuestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestViewController.swift; sourceTree = "<group>"; };
 		020B48B501B97D29269ECAF1 /* Pods_GovData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GovData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14E171B5C57A786BA3C24F1F /* Pods-GovData.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GovData.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GovData/Pods-GovData.debug.xcconfig"; sourceTree = "<group>"; };
 		A62D289C9D38D8D6ADB0C3E3 /* Pods-GovDataTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GovDataTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GovDataTests/Pods-GovDataTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			children = (
 				008F5E10207BA36500D7F089 /* AppDelegate.swift */,
 				008F5E12207BA36500D7F089 /* LoginViewController.swift */,
+				008F5E30207E6DA600D7F089 /* GuestViewController.swift */,
 				008F5E14207BA36500D7F089 /* Main.storyboard */,
 				008F5E17207BA36500D7F089 /* Assets.xcassets */,
 				008F5E19207BA36500D7F089 /* LaunchScreen.storyboard */,
@@ -346,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				008F5E13207BA36500D7F089 /* LoginViewController.swift in Sources */,
+				008F5E31207E6DA600D7F089 /* GuestViewController.swift in Sources */,
 				008F5E11207BA36500D7F089 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
