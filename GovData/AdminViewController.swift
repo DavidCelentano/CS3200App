@@ -1,5 +1,5 @@
 //
-//  GuestViewController.swift
+//  AdminViewController.swift
 //  GovData
 //
 //  Created by David Celentano on 4/11/18.
@@ -9,16 +9,114 @@
 import UIKit
 import SnapKit
 
-class GuestViewController: UIViewController {
+class AdminViewController: UIViewController {
     
     // TODO this data will be pullled!
     var senatorPickerData: [String] = ["-", "Lisa", "Fred", "Jim"]
     var billPickerData: [String] = ["-", "Bill 355", "Bill 378", "Bill 897"]
     
+    let adminLabel: UILabel = {
+        let l = UILabel()
+        l.numberOfLines = 0
+        l.text = "Admin View"
+        return l
+    }()
+    
+    let addLabel: UILabel = {
+        let l = UILabel()
+        l.isHidden = true
+        l.numberOfLines = 0
+        l.text = "Provide Details"
+        return l
+    }()
+    
+    let detailLabel1: UILabel = {
+        let l = UILabel()
+        l.isHidden = true
+        l.numberOfLines = 0
+        l.text = "Provide Details"
+        return l
+    }()
+    
+    let detailLabel2: UILabel = {
+        let l = UILabel()
+        l.isHidden = true
+        l.numberOfLines = 0
+        l.text = "Provide Details"
+        return l
+    }()
+    
+    let detailLabel3: UILabel = {
+        let l = UILabel()
+        l.isHidden = true
+        l.numberOfLines = 0
+        l.text = "Provide Details"
+        return l
+    }()
+    
+    let detailLabel4: UILabel = {
+        let l = UILabel()
+        l.isHidden = true
+        l.numberOfLines = 0
+        l.text = "Provide Details"
+        return l
+    }()
+    
+    let detailTextField1: UITextField = {
+        let t = UITextField()
+        t.isHidden = true
+        t.borderStyle = .roundedRect
+        t.autocapitalizationType = .none
+        t.clearButtonMode = .always
+        return t
+    }()
+    
+    let detailTextField2: UITextField = {
+        let t = UITextField()
+        t.isHidden = true
+        t.borderStyle = .roundedRect
+        t.autocapitalizationType = .none
+        t.clearButtonMode = .always
+        return t
+    }()
+    
+    let detailTextField3: UITextField = {
+        let t = UITextField()
+        t.isHidden = true
+        t.borderStyle = .roundedRect
+        t.autocapitalizationType = .none
+        t.clearButtonMode = .always
+        return t
+    }()
+    
+    let detailTextField4: UITextField = {
+        let t = UITextField()
+        t.isHidden = true
+        t.borderStyle = .roundedRect
+        t.autocapitalizationType = .none
+        t.clearButtonMode = .always
+        return t
+    }()
+    
     private let logoutButton: UIButton = {
         let b = UIButton(type: .system)
         b.setTitle("Logout", for: .normal)
         b.addTarget(self, action: #selector(logoutTapped), for: .touchUpInside)
+        return b
+    }()
+    
+    private let addButton: UIButton = {
+        let b = UIButton(type: .system)
+        b.setTitle("Add New", for: .normal)
+        b.addTarget(self, action: #selector(addTapped), for: .touchUpInside)
+        return b
+    }()
+    
+    private let submitButton: UIButton = {
+        let b = UIButton(type: .system)
+        b.isHidden = true
+        b.setTitle("Submit", for: .normal)
+        b.addTarget(self, action: #selector(submitTapped), for: .touchUpInside)
         return b
     }()
     
@@ -58,6 +156,8 @@ class GuestViewController: UIViewController {
         return l
     }()
     
+    private var addStackView: UIStackView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -78,9 +178,27 @@ class GuestViewController: UIViewController {
             make.leading.equalTo(view).offset(15)
         }
         
+        view.addSubview(adminLabel)
+        adminLabel.snp.makeConstraints { make in
+            make.bottom.equalTo(view.snp.bottom).offset(-20)
+            make.centerX.equalTo(view)
+        }
+        
+        view.addSubview(addButton)
+        addButton.snp.makeConstraints { make in
+            make.top.equalTo(view.snp.top).offset(120)
+            make.leading.equalTo(view).offset(15)
+        }
+        
+        view.addSubview(submitButton)
+        submitButton.snp.makeConstraints { make in
+            make.top.equalTo(view.snp.top).offset(120)
+            make.leading.equalTo(view).offset(15)
+        }
+        
         view.addSubview(senatorPicker)
         senatorPicker.snp.makeConstraints { make in
-            make.top.equalTo(logoutButton.snp.bottom).offset(10)
+            make.top.equalTo(logoutButton.snp.bottom).offset(80)
             make.centerX.equalTo(view)
             make.width.equalTo(150)
         }
@@ -88,7 +206,7 @@ class GuestViewController: UIViewController {
         view.addSubview(billPicker)
         billPicker.isHidden = true
         billPicker.snp.makeConstraints { make in
-            make.top.equalTo(logoutButton.snp.bottom).offset(10)
+            make.top.equalTo(logoutButton.snp.bottom).offset(80)
             make.centerX.equalTo(view)
             make.width.equalTo(150)
         }
@@ -98,16 +216,28 @@ class GuestViewController: UIViewController {
             make.top.equalTo(senatorPicker.snp.bottom).offset(15)
             make.centerX.equalTo(view)
         }
-        
+
         view.addSubview(infoLabel2)
         infoLabel2.snp.makeConstraints { make in
             make.top.equalTo(infoLabel1.snp.bottom).offset(10)
             make.centerX.equalTo(view)
         }
-        
+
         view.addSubview(infoLabel3)
         infoLabel3.snp.makeConstraints { make in
             make.top.equalTo(infoLabel2.snp.bottom).offset(10)
+            make.centerX.equalTo(view)
+        }
+        
+        addStackView = UIStackView(arrangedSubviews: [addLabel, detailLabel1, detailTextField1, detailLabel2, detailTextField2, detailLabel3, detailTextField3, detailLabel4, detailTextField4])
+        addStackView.alignment = .center
+        addStackView.axis = .vertical
+        addStackView.spacing = 10
+        
+        
+        view.addSubview(addStackView)
+        addStackView.snp.makeConstraints { make in
+            make.top.equalTo(logoutButton.snp.bottom).offset(80)
             make.centerX.equalTo(view)
         }
     }
@@ -137,9 +267,70 @@ class GuestViewController: UIViewController {
     @objc private func logoutTapped() {
         dismiss(animated: true, completion: nil)
     }
+    
+    @objc private func addTapped() {
+        print("addTapped")
+        addButton.isHidden = true
+        submitButton.isHidden = false
+        billPicker.isHidden = true
+        senatorPicker.isHidden = true
+        infoLabel1.isHidden = true
+        infoLabel2.isHidden = true
+        infoLabel3.isHidden = true
+        addLabel.isHidden = false
+        if infoSwitch.selectedSegmentIndex == 1 {
+            addLabel.text = "Adding New Senator"
+            detailLabel1.text = "Enter Senator Name"
+            detailLabel2.text = "Enter Senator State"
+            detailLabel3.text = "Enter Senator Party"
+            detailLabel4.text = "Enter Senator Website"
+        } else {
+            addLabel.text = "Adding New bill"
+            detailLabel1.text = "Enter Bill Name"
+            detailLabel2.text = "Enter Last Update Date"
+            detailLabel3.text = "Enter Tracker State"
+            detailLabel4.text = "Enter Recent Action"
+        }
+        detailLabel1.isHidden = false
+        detailLabel2.isHidden = false
+        detailLabel3.isHidden = false
+        detailLabel4.isHidden = false
+        detailTextField1.text = ""
+        detailTextField2.text = ""
+        detailTextField3.text = ""
+        detailTextField4.text = ""
+        detailTextField1.isHidden = false
+        detailTextField2.isHidden = false
+        detailTextField3.isHidden = false
+        detailTextField4.isHidden = false
+    }
+    
+    @objc func submitTapped() {
+        submitButton.isHidden = true
+        addButton.isHidden = false
+        if infoSwitch.selectedSegmentIndex == 0 {
+            billPickerData.append(detailTextField1.text!)
+            infoSwitchChanged()
+        } else {
+            senatorPickerData.append(detailTextField1.text!)
+            infoSwitchChanged()
+        }
+        infoLabel1.isHidden = false
+        infoLabel2.isHidden = false
+        infoLabel3.isHidden = false
+        addLabel.isHidden = true
+        detailLabel1.isHidden = true
+        detailLabel2.isHidden = true
+        detailLabel3.isHidden = true
+        detailLabel4.isHidden = true
+        detailTextField1.isHidden = true
+        detailTextField2.isHidden = true
+        detailTextField3.isHidden = true
+        detailTextField4.isHidden = true
+    }
 }
 
-extension GuestViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+extension AdminViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {

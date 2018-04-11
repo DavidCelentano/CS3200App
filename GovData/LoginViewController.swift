@@ -59,7 +59,7 @@ class LoginViewController: UIViewController {
     private let loginButton: UIButton = {
         let b = UIButton(type: .system)
         b.setTitle("Login", for: .normal)
-        //b.addTarget(self, action: #selector(SOME METHOD), for: .touchUpInside)
+        b.addTarget(self, action: #selector(loginTapped), for: .touchUpInside)
         return b
     }()
     
@@ -77,7 +77,7 @@ class LoginViewController: UIViewController {
         
         view.addSubview(titleImageView)
         titleImageView.snp.makeConstraints { make in
-            make.top.equalTo(view.snp.top).offset(30)
+            make.top.equalTo(view.snp.top).offset(50)
             make.size.equalTo(100)
             make.centerX.equalTo(view)
         }
@@ -124,8 +124,16 @@ class LoginViewController: UIViewController {
     @objc func guestLoginTapped() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let guestVC = storyboard.instantiateViewController(withIdentifier: "GuestVC") as? GuestViewController else { assertionFailure("\(#function) Could not present GuestVC"); return }
-        //filterVC.modalTransitionStyle = .
         present(guestVC, animated: true, completion: nil)
+    }
+    
+    @objc func loginTapped() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let adminVC = storyboard.instantiateViewController(withIdentifier: "AdminVC") as? AdminViewController else { assertionFailure("\(#function) Could not present AdminVC"); return }
+        present(adminVC, animated: true, completion: nil)
+        adminVC.adminLabel.text = "Welcome \(usernameTextField.text ?? "Guest")"
+        usernameTextField.text = ""
+        passwordTextField.text = ""
     }
 
 }
