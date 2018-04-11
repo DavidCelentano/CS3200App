@@ -14,6 +14,12 @@ class LoginViewController: UIViewController {
     // MARK: UI elements
     // setting up UI elements
     
+    private let titleImageView: UIImageView = {
+        let i = UIImageView()
+        i.image = #imageLiteral(resourceName: "GreatSeal")
+        return i
+    }()
+    
     private let titleLabel: UILabel = {
         let l = UILabel()
         //l.textColor = UIColor.white
@@ -69,9 +75,16 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.addSubview(titleImageView)
+        titleImageView.snp.makeConstraints { make in
+            make.top.equalTo(view.snp.top).offset(30)
+            make.size.equalTo(100)
+            make.centerX.equalTo(view)
+        }
+        
         view.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.snp.top).offset(40)
+            make.top.equalTo(titleImageView.snp.bottom).offset(20)
             make.centerX.equalTo(view)
         }
         
@@ -107,12 +120,6 @@ class LoginViewController: UIViewController {
             make.centerX.equalTo(titleLabel)
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }
 
