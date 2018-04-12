@@ -12,7 +12,7 @@ import SnapKit
 class GuestViewController: UIViewController {
     
     // TODO this data will be pullled!
-    var senatorPickerData: [String] = ["-", "Lisa", "Fred", "Jim"]
+    var senatorPickerData: [String] = ["-", "Tammy Baldwin", "John Barrasso", "Sherrod Brown"]
     var billPickerData: [String] = ["-", "Bill 355", "Bill 378", "Bill 897"]
     
     private let logoutButton: UIButton = {
@@ -82,7 +82,7 @@ class GuestViewController: UIViewController {
         senatorPicker.snp.makeConstraints { make in
             make.top.equalTo(logoutButton.snp.bottom).offset(10)
             make.centerX.equalTo(view)
-            make.width.equalTo(150)
+            make.width.equalTo(250)
         }
         
         view.addSubview(billPicker)
@@ -90,7 +90,7 @@ class GuestViewController: UIViewController {
         billPicker.snp.makeConstraints { make in
             make.top.equalTo(logoutButton.snp.bottom).offset(10)
             make.centerX.equalTo(view)
-            make.width.equalTo(150)
+            make.width.equalTo(250)
         }
         
         view.addSubview(infoLabel1)
@@ -147,37 +147,49 @@ extension GuestViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         if(row == 1)
         {
             if infoSwitch.selectedSegmentIndex == 0 {
-                infoLabel1.text = "Introduced Date: 1/4/2018"
-                infoLabel2.text = "Tracker State: N/A"
+                infoLabel1.text = "Last Modified: 4/8/2017"
+                infoLabel2.text = "Introduced on: 5/6/2018"
                 infoLabel3.text = "Recent Action: N/A"
             } else {
-                infoLabel1.text = "State: FL"
-                infoLabel2.text = "Party: Republican"
-                infoLabel3.text = "Website: www.lisa.com"
+                infoLabel1.text = "State: WI"
+                infoLabel2.text = "Party: Democrat"
+                infoLabel3.text = "Website: www.baldwin.senate.gov"
             }
         }
         else if(row == 2)
         {
             if infoSwitch.selectedSegmentIndex == 0 {
-                infoLabel1.text = "Introduced Date: 12/22/2017"
-                infoLabel2.text = "Tracker State: N/A"
+                infoLabel1.text = "Last Modified: 6/3/2017"
+                infoLabel2.text = "Introduced on: 12/12/2015"
                 infoLabel3.text = "Recent Action: N/A"
             } else {
-                infoLabel1.text = "State: NY"
-                infoLabel2.text = "Party: Democrat"
-                infoLabel3.text = "Website: www.fred.com"
+                infoLabel1.text = "State: WY"
+                infoLabel2.text = "Party: Republican"
+                infoLabel3.text = "Website: www.barrasso.senate.gov"
             }
         }
         else if(row == 3)
         {
             if infoSwitch.selectedSegmentIndex == 0 {
-                infoLabel1.text = "Introduced Date: 5/22/2016"
-                infoLabel2.text = "Tracker State: N/A"
+                infoLabel1.text = "Last Modified: 4/6/2017"
+                infoLabel2.text = "Introduced on: 8/3/2016"
+                infoLabel3.text = "Recent Action: N/A"
+            } else {
+                infoLabel1.text = "State: OH"
+                infoLabel2.text = "Party: Democrat"
+                infoLabel3.text = "Website: www.brown.senate.gov"
+            }
+        }
+        else if(row == 4)
+        {
+            if infoSwitch.selectedSegmentIndex == 0 {
+                infoLabel1.text = "Last Modified: 4/6/2017"
+                infoLabel2.text = "Introduced on: N/A"
                 infoLabel3.text = "Recent Action: N/A"
             } else {
                 infoLabel1.text = "State: CA"
                 infoLabel2.text = "Party: Independant"
-                infoLabel3.text = "Website: www.jim.com"
+                infoLabel3.text = "Website: www.test.com"
             }
         }
         else
