@@ -72,6 +72,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		000243DC2087C47D0009680B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				008F5E12207BA36500D7F089 /* LoginViewController.swift */,
+				008F5E30207E6DA600D7F089 /* GuestViewController.swift */,
+				008F5E32207E9C9C00D7F089 /* AdminViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		000243DD2087C48B0009680B /* API */ = {
+			isa = PBXGroup;
+			children = (
+				000243DA2087A65B0009680B /* DBAPIService.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		008F5E04207BA36400D7F089 = {
 			isa = PBXGroup;
 			children = (
@@ -95,11 +113,9 @@
 		008F5E0F207BA36400D7F089 /* GovData */ = {
 			isa = PBXGroup;
 			children = (
+				000243DD2087C48B0009680B /* API */,
+				000243DC2087C47D0009680B /* ViewControllers */,
 				008F5E10207BA36500D7F089 /* AppDelegate.swift */,
-				008F5E12207BA36500D7F089 /* LoginViewController.swift */,
-				008F5E30207E6DA600D7F089 /* GuestViewController.swift */,
-				008F5E32207E9C9C00D7F089 /* AdminViewController.swift */,
-				000243DA2087A65B0009680B /* DBAPIService.swift */,
 				008F5E14207BA36500D7F089 /* Main.storyboard */,
 				008F5E17207BA36500D7F089 /* Assets.xcassets */,
 				008F5E19207BA36500D7F089 /* LaunchScreen.storyboard */,
