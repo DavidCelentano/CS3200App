@@ -24,7 +24,7 @@ class LoginViewController: UIViewController {
         let l = UILabel()
         //l.textColor = UIColor.white
         l.numberOfLines = 0
-        l.text = "Welcome to GovData"
+        l.text = "Welcome to SenaData"
         return l
     }()
     
