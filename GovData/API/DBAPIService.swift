@@ -41,4 +41,49 @@ class DBAPIService {
         task.resume()
     }
     
+    func createSenator(senid: String, fname: String, lname: String, state: String, party: String, website: String) {
+        let session = URLSession.shared
+        var request = URLRequest(url: URL(string: "https://cs3200-currancelentanobenham.herokuapp.com/api/senators?senid=x&fname=x&lname=x&state=x&party=x&website=x")!)
+        request.httpMethod = "POST"
+        // send request
+        let task = session.dataTask(with: request, completionHandler: { [weak self] (data, response, error) in
+            if error != nil {
+                print("Error while creating senator")
+            } else {
+                print("Senator Created")
+            }
+        })
+        task.resume()
+    }
+    
+    func updateSenator(senid: String, fname: String, lname: String, state: String, party: String, website: String) {
+        let session = URLSession.shared
+        var request = URLRequest(url: URL(string: "https://cs3200-currancelentanobenham.herokuapp.com/api/senators/x?fname=x&lname=x&state=x&party=x&website=x")!)
+        request.httpMethod = "PUT"
+        // send request
+        let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
+            if error != nil {
+                print("Error while updating senator")
+            } else {
+                print("Senator Updated")
+            }
+        })
+        task.resume()
+    }
+    
+    func deleteSenator(senid: String) {
+        let session = URLSession.shared
+        var request = URLRequest(url: URL(string: "https://cs3200-currancelentanobenham.herokuapp.com/api/senators/x")!)
+        request.httpMethod = "DELETE"
+        // send request
+        let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
+            if error != nil {
+                print("Error while deleting senator")
+            } else {
+                print("Senator Deleted")
+            }
+        })
+        task.resume()
+    }
+    
 }

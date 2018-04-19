@@ -89,7 +89,9 @@ extension GuestViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
-        infoLabel1.text = senatorBodyData[row]
+        if row < senatorBodyData.count {
+            infoLabel1.text = senatorBodyData[row]
+        }
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
